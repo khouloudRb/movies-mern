@@ -20,7 +20,6 @@ class Saved extends Component {
   getAllMovies = () => {
     API.getAllMovies()
       .then(res => {
-        // console.log(res.data);
         this.setState({
           movies: res.data
         });

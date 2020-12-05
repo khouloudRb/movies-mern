@@ -4,7 +4,7 @@ import Row from "./Row";
 import Col from "./Col";
 import Card from "./Card";
 import SearchForm from "./SearchForm";
-import MovieDetail from "./MovieDetail";
+import Movie from "./OneSavedMovie";
 import Saved from "./SavedMovieList";
 import API from "../utils/API";
 
@@ -22,8 +22,7 @@ class OmdbContainer extends Component {
   searchMovies = query => {
     API.search(query)
       .then(res => {
-        // console.log(res.data);
-        this.setState({ result: res.data })
+        this.setState({ result: res.data });
       })
       .catch(err => console.log(err));
   };
@@ -42,6 +41,21 @@ class OmdbContainer extends Component {
     this.searchMovies(this.state.search);
   };
 
+  handleMovieSave = id => {
+    console.log(this.state.result);
+    // console.log(this.state.result);
+    // const movie = this.state.result.find(movie => movie.id === id);
+
+    API.goSaveMovie({
+      title: this.state.result.Title,
+      imageUrl: this.state.result.Poster,
+      director: this.state.result.Director,
+      genre: this.state.result.Genre,
+      description: this.state.result.Plot,
+      released: this.state.result.Released
+    })
+  };
+
   render() {
     return (
       <Container>
@@ -51,13 +65,26 @@ class OmdbContainer extends Component {
               heading={this.state.result.Title || "Search for a Movie to Begin"}
             >
               {this.state.result.Title ? (
-                <MovieDetail
+                <Movie
                   title={this.state.result.Title}
                   src={this.state.result.Poster}
                   director={this.state.result.Director}
                   genre={this.state.result.Genre}
                   description={this.state.result.Plot}
                   released={this.state.result.Released}
+                  Button={() => (
+                    <button
+                      onClick={() => {
+                        this.handleMovieSave(this.state.result.id);
+                        alert("Your movie has been saved!");
+                        window.location.reload();
+
+                      }}
+                      className="save-btn btn-primary ml-2"
+                    >
+                      Save
+                    </button>
+                  )}
                 />
               ) : (
                 <h3>No Results to Display</h3>
