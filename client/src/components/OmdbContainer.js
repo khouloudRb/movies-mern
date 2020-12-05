@@ -5,7 +5,7 @@ import Col from "./Col";
 import Card from "./Card";
 import SearchForm from "./SearchForm";
 import MovieDetail from "./MovieDetail";
-import Saved from "./components/SavedMovieList";
+import Saved from "./SavedMovieList";
 import API from "../utils/API";
 
 class OmdbContainer extends Component {
