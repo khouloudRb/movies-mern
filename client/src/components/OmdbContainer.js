@@ -64,7 +64,7 @@ class OmdbContainer extends Component {
             </Card>
           </Col>
           <Col size="md-4">
-            <Card heading="Search">
+            <Card heading="Please type in the name of the movie">
               <SearchForm
                 value={this.state.search}
                 handleInputChange={this.handleInputChange}
@@ -74,20 +74,12 @@ class OmdbContainer extends Component {
           </Col>
         </Row>
         <Row>
+          <Col size="md-12"></Col>
+        </Row>
+        <Row>
           <Col size="md-12">
-            <Card heading={this.state.result.Title || "Search for a Movie to Begin"}>
-            {this.state.result.Title ? (
-                <MovieDetail
-                  title={this.state.result.Title}
-                  src={this.state.result.Poster}
-                  director={this.state.result.Director}
-                  genre={this.state.result.Genre}
-                  description={this.state.result.Plot}
-                  released={this.state.result.Released}
-                />
-              ) : (
-                <h3>No Results to Display</h3>
-              )}
+            <Card heading="Saved Movies">
+                
             </Card>
           </Col>
         </Row>
