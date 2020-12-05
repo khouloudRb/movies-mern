@@ -6,7 +6,7 @@ const db = require('./db');
 const movieRouter = require('./routes/api')
 
 const app = express();
-const PORT = process.env.PORT || 3000 ; 
+const PORT = process.env.PORT || 3001 ; 
 
 if (app.get('env') === 'development') { require('dotenv').config(); }
 

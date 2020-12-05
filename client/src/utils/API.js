@@ -6,7 +6,7 @@ export default {
   search: function(query) {
     return axios.get(BASEURL + query + APIKEY);
   },   
-  // Gets all saved books
+  // Gets all saved movies
   getAllMovies: function() {
     return axios.get("api/movies");
   },

@@ -6,6 +6,7 @@ import Card from "./Card";
 import SearchForm from "./SearchForm";
 import MovieDetail from "./MovieDetail";
 import API from "../utils/API";
+import Movie from "./OneSavedMovie";
 
 class OmdbContainer extends Component {
   state = {
@@ -79,7 +80,7 @@ class OmdbContainer extends Component {
         <Row>
           <Col size="md-12">
             <Card heading="Saved Movies">
-                
+                <Movie></Movie>
             </Card>
           </Col>
         </Row>
