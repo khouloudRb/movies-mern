@@ -36,8 +36,7 @@ class Saved extends Component {
       <Container>
         <Row>
           <Col size="md-12">
-            <h2 className="saved-list-title"> Saved Movies</h2>
-            <Card icon="download">
+            <Card heading="My Saved Movies">
               {this.state.movies.length ? (
                 <List>
                   {this.state.movies.map(movie => 

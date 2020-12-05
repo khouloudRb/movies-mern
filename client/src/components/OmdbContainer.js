@@ -8,6 +8,8 @@ import Movie from "./OneSavedMovie";
 import Saved from "./SavedMovieList";
 import API from "../utils/API";
 
+import styled from 'styled-components'
+
 class OmdbContainer extends Component {
   state = {
     result: {},
@@ -87,7 +89,7 @@ class OmdbContainer extends Component {
             </Card>
           </Col>
           <Col size="md-4">
-            <Card heading="Please type in the name of the movie">
+            <Card heading="Movie Search">
               <SearchForm
                 value={this.state.search}
                 handleInputChange={this.handleInputChange}
