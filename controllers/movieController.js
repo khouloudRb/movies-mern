@@ -3,7 +3,7 @@ const db = require("../models");
 // Defining methods for the movieController
 module.exports = {
   findAll: function(req, res) {
-    db.Book
+    db.Movie
       .find(req.q)
       .then(dbModel => res.json(dbModel))
       .catch(err => {
@@ -12,7 +12,7 @@ module.exports = {
       });
   },
   findById: function(req, res) {
-    db.Book
+    db.Movie
       .findById(req.params.id)
       .then(dbModel => res.json(dbModel))
       .catch(err => {
@@ -21,7 +21,7 @@ module.exports = {
       });
   },
   create: function(req, res) {
-    db.Book
+    db.Movie
       .create(req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => {
@@ -30,7 +30,7 @@ module.exports = {
       });
   },
   update: function(req, res) {
-    db.Book
+    db.Movie
       .findOneAndUpdate({ id: req.params.id }, req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => {
@@ -39,7 +39,7 @@ module.exports = {
       });
   },
   remove: function(req, res) {
-    db.Book
+    db.Movie
       .findById({ _id: req.params.id })
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))

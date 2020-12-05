@@ -1,9 +1,8 @@
 const mongoose = require('mongoose');
 const models = require("../models");
 
-
 mongoose.connect(
-  process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/googleBookSearch', 
+  process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/movieNameSearch', 
   { 
     useNewUrlParser: true,  
     useUnifiedTopology: true,
@@ -17,27 +16,28 @@ mongoose.connect(
 
 const db = mongoose.connection;
 
-const bookSeed = [
+const movieSeed = [
     {
-      authors: ["Suzanne Collins"],
-      description: "Set in a dark vision of the near future, a terrifying reality TV show is taking place. Twelve boys and twelve girls are forced to appear in a live event called The Hunger Games. There is only one rule: kill or be killed. When sixteen-year-old Katniss Everdeen steps forward to take her younger sister's place in the games, she sees it as a death sentence. But Katniss has been close to death before. For her, survival is second nature.",
-      image: "http://books.google.com/books/content?id=sazytgAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
-      link: "http://books.google.com/books?id=sazytgAACAAJ&dq=title:The+Hunger+Games&hl=&source=gbs_api",
-      title: "The Hunger Games"
+      title: "Random Movie",
+      imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJ0Ae3DZ67dxAAjCnupYmVbnXSzp6Y18hLDw&usqp=CAU",
+      director: "Dennis Quaid",
+      genre: "Comedy",
+      description: "A puppy is in search of its owner",
+      released: "16 May 2018"
     }
 ];
 
-// models.Book
-// .remove({})
-// .then(() => models.Book.collection.insertMany(bookSeed))
-// .then(data => {
-//     console.log(data.result.n + " records inserted!");
-//     process.exit(0);
-// })
-// .catch(err => {
-//     console.error(err);
-//     process.exit(1);
-// });
+models.Movie
+.remove({})
+.then(() => models.Movie.collection.insertMany(movieSeed))
+.then(data => {
+    console.log(data.result.n + " records inserted!");
+    process.exit(0);
+})
+.catch(err => {
+    console.error(err);
+    process.exit(1);
+});
   
 
 module.exports = db;
