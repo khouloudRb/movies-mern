@@ -7,7 +7,6 @@ import SearchForm from "./SearchForm";
 import Movie from "./OneSavedMovie";
 import Saved from "./SavedMovieList";
 import API from "../utils/API";
-
 import styled from 'styled-components';
 
 const StyledH1 = styled.h1`
@@ -66,6 +65,15 @@ class OmdbContainer extends Component {
       <Container>
         <StyledH1>Search for a Movie!</StyledH1>
         <Row>
+          <Col size="md-4">
+            <Card heading="Movie Search">
+              <SearchForm
+                value={this.state.search}
+                handleInputChange={this.handleInputChange}
+                handleFormSubmit={this.handleFormSubmit}
+              />
+            </Card>
+          </Col>
           <Col size="md-8">
             <Card
               heading={"Movie Result"}
@@ -96,16 +104,9 @@ class OmdbContainer extends Component {
               )}
             </Card>
           </Col>
-          <Col size="md-4">
-            <Card heading="Movie Search">
-              <SearchForm
-                value={this.state.search}
-                handleInputChange={this.handleInputChange}
-                handleFormSubmit={this.handleFormSubmit}
-              />
-            </Card>
-          </Col>
         </Row>
+        <br />
+        <StyledH1>Keeping a Record of the Movies I liked!</StyledH1>
         <Row>
           <Saved />
         </Row>

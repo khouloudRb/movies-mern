@@ -1,9 +1,14 @@
 import React from "react";
+import styled from 'styled-components';
+
+const StyledDiv = styled.div`
+  font-family: 'Montserrat', sans-serif;`
+;
 
 function SearchForm(props) {
   return (
     <form>
-      <div className="form-group">
+      <StyledDiv className="form-group">
         <label htmlFor="search">Name of Movie:</label>
         <input
           onChange={props.handleInputChange}
@@ -18,7 +23,7 @@ function SearchForm(props) {
         <button onClick={props.handleFormSubmit} className="btn btn-primary">
           Search
         </button>
-      </div>
+      </StyledDiv>
     </form>
   );
 }
