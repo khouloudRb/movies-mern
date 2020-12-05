@@ -1,78 +1,77 @@
 import React, { Component } from "react";
 import Card from ".Card";
-import Movie from ".OneSavedMovie";
+import Movie from "./OneSavedMovie";
 import API from "../utils/API";
 import Col from "./Col";
 import Row from "./Row";
 import Container from "./Container";
-import List from "../components/BookList";
-import "../pages.css"
+import { List } from "./MovieList";
+// import "../pages.css"
 
 class Saved extends Component {
   state = {
-    books: []
+    movies: []
   };
 
   componentDidMount() {
-    this.getAllBooks();
+    this.getAllMovies();
   }
 
-  getAllBooks = () => {
-    API.getAllBooks()
+  getAllMovies = () => {
+    API.getAllMovies()
       .then(res =>
         this.setState({
-          books: res.data
+          movies: res.data
         })
       )
       .catch(err => console.log(err));
   };
 
-  handleBookDelete = id => {
-    API.deleteBook(id).then(res => this.getAllBooks());
+  handleMovieDelete = id => {
+    API.deleteMovie(id).then(res => this.getAllMovies());
   };
 
   render() {  
-    return (
-      <Container>
-        <Row>
-          <Col size="md-12">
-            <h2 className="saved-list-title"> Saved Books</h2>
-            <Card icon="download">
-              {this.state.books.length ? (
-                <List>
-                  {this.state.books.map(book => (
-                    <Book
-                      key={book._id}
-                      title={book.title}
-                      subtitle={book.subtitle}
-                      link={book.link}
-                      authors={book.authors.join(", ")}
-                      description={book.description}
-                      image={book.image}
-                      Button={() => (
-                        <button
-                          onClick={() => {
-                            this.handleBookDelete(book._id);
-                            alert("The book will be removed from your saved list.")
-                          }}
-                          className="delete-btn btn-danger ml-2"
-                        >
-                          Delete
-                        </button>
-                      )}
-                    />
-                  ))}
-                </List>
-              ) : (
-                <h2 className="text-center">No Saved Books</h2>
-              )}
-            </Card>
-          </Col>
-        </Row>
-        {/* <Footer /> */}
-      </Container>
-    );
-  }
+        return (
+        <Container>
+            <Row>
+            <Col size="md-12">
+                <h2 className="saved-list-title"> Saved Movies</h2>
+                <Card icon="download">
+                    {this.state.movies.length ? (
+                        <List>
+                            {this.state.movies.map(movie => (
+                                <MovieDetail
+                                    title={this.state.movie.Title}
+                                    src={this.state.movie.Poster}
+                                    director={this.state.movie.Director}
+                                    genre={this.state.movie.Genre}
+                                    description={this.state.movie.Plot}
+                                    released={this.state.movie.Released}
+                                    Button={() => (
+                                        <button
+                                        onClick={() => {
+                                            this.handleBookDelete(book._id);
+                                            alert("The book will be removed from your saved list.")
+                                        }}
+                                        className="delete-btn btn-danger ml-2"
+                                        >
+                                        Delete
+                                        </button>
+                                    )}
+                                />
+                            ))}
+                        </List>
+                    ) : (
+                        <h2 className="text-center">No Saved Books</h2>
+                    )}
+                </Card>
+            </Col>
+            </Row>
+            {/* <Footer /> */}
+        </Container>
+        );
+    }
 }
 
 export default Saved;

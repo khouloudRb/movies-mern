@@ -5,6 +5,7 @@ import Col from "./Col";
 import Card from "./Card";
 import SearchForm from "./SearchForm";
 import MovieDetail from "./MovieDetail";
+import Saved from "./components/SavedMovieList";
 import API from "../utils/API";
 
 class OmdbContainer extends Component {
@@ -72,6 +73,9 @@ class OmdbContainer extends Component {
               />
             </Card>
           </Col>
+        </Row>
+        <Row>
+          <Saved />
         </Row>
       </Container>
     );
