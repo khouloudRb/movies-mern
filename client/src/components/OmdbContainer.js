@@ -20,7 +20,10 @@ class OmdbContainer extends Component {
 
   searchMovies = query => {
     API.search(query)
-      .then(res => this.setState({ result: res.data }))
+      .then(res => {
+        console.log(res.data);
+        this.setState({ result: res.data })
+      })
       .catch(err => console.log(err));
   };
 
@@ -52,6 +55,7 @@ class OmdbContainer extends Component {
                   src={this.state.result.Poster}
                   director={this.state.result.Director}
                   genre={this.state.result.Genre}
+                  description={this.state.result.Plot}
                   released={this.state.result.Released}
                 />
               ) : (
