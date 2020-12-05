@@ -2,35 +2,45 @@ import React from "react";
 import { ListItem } from "./MovieList";
 import Row from "./Row";
 import Col from "./Col";
-
 import styled from 'styled-components';
 
 const StyledImg = styled.img`
-  max-width: 50%;
+  max-width: 75%;
 `;
 
-const StyledH3 = styled.h3`
+const StyledMovieP = styled.p`
   font-size: 50px;
   font-family: 'Grandstander', cursive;
+`;
+
+const StyledInfoP = styled.p`
+  font-size: 20px;
+  font-family: 'Montserrat', sans-serif;
+  padding: 5px;
+`;
+
+const StyledSpan = styled.span`
+  font-weight: bold;
 `;
 
 function Movie(props) {
   return (
     <ListItem>
       <Row className="flex-wrap-reverse">
-        <Col size="md-12">
-          <StyledH3 className="movie-title font-italic">{props.title}</StyledH3>
-        </Col>
-      </Row>
-      <Row>
         <Col size="md-4" className="img-desc">
-            <StyledImg className="img-thumbnail img-fluid w-100" src={props.src} alt={props.title} />
+          <StyledImg className="img-thumbnail img-fluid w-100" src={props.src} alt={props.title} />
         </Col>
         <Col size="md-8" className="movie-info">
-          <p className="movie-desc">{props.description}</p>
-          <p className="author">Directed by: {props.director}</p>
-          <p className="director">Genre: {props.genre}</p>
-          <p className="released">Released on: {props.released}</p>
+          <StyledMovieP className="movie-title font-italic">{props.title}</StyledMovieP>
+          <StyledInfoP>
+            {props.description}
+            <br />
+            <StyledSpan>Directed by: </StyledSpan>{props.director}
+            <br />
+            <StyledSpan>Genre:</StyledSpan> {props.genre}
+            <br />
+            <StyledSpan>Released on:</StyledSpan> {props.released}
+          </StyledInfoP>
         </Col>
       </Row>
       <props.Button />

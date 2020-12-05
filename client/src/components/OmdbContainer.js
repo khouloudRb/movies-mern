@@ -8,7 +8,7 @@ import Movie from "./OneSavedMovie";
 import Saved from "./SavedMovieList";
 import API from "../utils/API";
 
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 class OmdbContainer extends Component {
   state = {
@@ -57,10 +57,11 @@ class OmdbContainer extends Component {
   render() {
     return (
       <Container>
+        <h1>Search for a movie!</h1>
         <Row>
           <Col size="md-8">
             <Card
-              heading={this.state.result.Title || "Search for a Movie to Begin"}
+              heading={"Movie Result"}
             >
               {this.state.result.Title ? (
                 <Movie
