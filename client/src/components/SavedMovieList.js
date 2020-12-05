@@ -19,10 +19,13 @@ class Saved extends Component {
 
   getAllMovies = () => {
     API.getAllMovies()
-      .then(res =>
+      .then(res => {
+        // console.log(res.data);
         this.setState({
           movies: res.data
-        })
+        });
+      }
+       
       )
       .catch(err => console.log(err));
   };
@@ -32,46 +35,48 @@ class Saved extends Component {
   };
 
   render() {  
-        return (
-        <Container>
-            <Row>
-                <Col size="md-12">
-                    <h2 className="saved-list-title"> Saved Movies</h2>
-                    <Card icon="download">
-                        {this.state.movies.length ? (
-                            <List>
-                                {this.state.movies.map(movie => (
-                                    <Movie
-                                        title={this.state.movie.Title}
-                                        src={this.state.movie.Poster}
-                                        director={this.state.movie.Director}
-                                        genre={this.state.movie.Genre}
-                                        description={this.state.movie.Plot}
-                                        released={this.state.movie.Released}
-                                        Button={() => (
-                                            <button
-                                            onClick={() => {
-                                                this.handleMovieDelete(movie._id);
-                                                alert("The movie will be removed from your saved list.")
-                                            }}
-                                            className="delete-btn btn-danger ml-2"
-                                            >
-                                            Delete
-                                            </button>
-                                        )}
-                                    />
-                                ))}
-                            </List>
-                        ) : (
-                            <h2 className="text-center">No Saved Movie</h2>
+    return (
+      <Container>
+        <Row>
+          <Col size="md-12">
+            <h2 className="saved-list-title"> Saved Movies</h2>
+            <Card icon="download">
+              {this.state.movies.length ? (
+                <List>
+                  {this.state.movies.map(movie => 
+                    (
+                      <Movie
+                        key={movie._id}
+                        title={movie.title}
+                        src={movie.imageUrl}
+                        director={movie.director}
+                        genre={movie.genre}
+                        description={movie.description}
+                        released={movie.released}
+                        Button={() => (
+                          <button
+                            onClick={() => {
+                              this.handleMovieDelete(movie._id);
+                              alert("The movie will be removed from your saved list.")
+                            }}
+                            className="delete-btn btn-danger ml-2"
+                          >
+                            Delete
+                          </button>
                         )}
-                    </Card>
-                </Col>
-            </Row>
-            {/* <Footer /> */}
-        </Container>
-        );
-    }
+                      />
+                    )
+                  )}
+                </List>
+              ) : (
+                <h2 className="text-center">No Saved Movie</h2>
+              )}
+            </Card>
+          </Col>
+        </Row>
+      </Container>
+    );
+  }
 }
 
 export default Saved;

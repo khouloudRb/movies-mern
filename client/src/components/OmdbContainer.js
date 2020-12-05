@@ -22,7 +22,7 @@ class OmdbContainer extends Component {
   searchMovies = query => {
     API.search(query)
       .then(res => {
-        console.log(res.data);
+        // console.log(res.data);
         this.setState({ result: res.data })
       })
       .catch(err => console.log(err));

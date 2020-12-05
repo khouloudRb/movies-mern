@@ -10,6 +10,7 @@ module.exports = {
         console.error(err) 
         res.status(422).json(err)
       });
+    console.log(req.headers, 'hello');
   },
   findById: function(req, res) {
     db.Movie
