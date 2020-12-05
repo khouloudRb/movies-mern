@@ -27,7 +27,7 @@ if (process.env.NODE_ENV === "production") {
 
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
-app.get('/', (req, res) => {res.send('Hello World!')});
+// app.get('/', (req, res) => {res.send('Hello World!')});
 
 // Add routes
 app.use('/api', movieRouter);
