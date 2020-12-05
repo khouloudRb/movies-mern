@@ -20,7 +20,7 @@ const StyledInfoP = styled.p`
 `;
 
 const StyledSpan = styled.span`
-  font-weight: bold;
+  font-weight: 600;
 `;
 
 function Movie(props) {
@@ -31,9 +31,10 @@ function Movie(props) {
           <StyledImg className="img-thumbnail img-fluid w-100" src={props.src} alt={props.title} />
         </Col>
         <Col size="md-8" className="movie-info">
-          <StyledMovieP className="movie-title font-italic">{props.title}</StyledMovieP>
+          <StyledMovieP className="movie-title">{props.title}</StyledMovieP>
           <StyledInfoP>
             {props.description}
+            <br />
             <br />
             <StyledSpan>Directed by: </StyledSpan>{props.director}
             <br />

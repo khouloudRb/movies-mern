@@ -10,6 +10,13 @@ import API from "../utils/API";
 
 import styled from 'styled-components';
 
+const StyledH1 = styled.h1`
+  padding: 10px;
+  font-family: 'Grandstander', cursive;
+  font-weight: 600;
+  margin-top: 30px;
+`;
+
 class OmdbContainer extends Component {
   state = {
     result: {},
@@ -57,7 +64,7 @@ class OmdbContainer extends Component {
   render() {
     return (
       <Container>
-        <h1>Search for a movie!</h1>
+        <StyledH1>Search for a Movie!</StyledH1>
         <Row>
           <Col size="md-8">
             <Card
