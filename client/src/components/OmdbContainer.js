@@ -42,10 +42,6 @@ class OmdbContainer extends Component {
   };
 
   handleMovieSave = id => {
-    console.log(this.state.result);
-    // console.log(this.state.result);
-    // const movie = this.state.result.find(movie => movie.id === id);
-
     API.goSaveMovie({
       title: this.state.result.Title,
       imageUrl: this.state.result.Poster,
@@ -78,7 +74,6 @@ class OmdbContainer extends Component {
                         this.handleMovieSave(this.state.result.id);
                         alert("Your movie has been saved!");
                         window.location.reload();
-
                       }}
                       className="save-btn btn-primary ml-2"
                     >

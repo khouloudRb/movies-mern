@@ -23,9 +23,7 @@ class Saved extends Component {
         this.setState({
           movies: res.data
         });
-      }
-       
-      )
+      })
       .catch(err => console.log(err));
   };
 
