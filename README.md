@@ -12,7 +12,7 @@ I created a project that would allow the user to look up basic information about
 * [Next-Steps](#Next-Steps)
 
 ## Installation
-Feel free to fork this repo if you want to run it on your local machine. For this application, I also have Mongoose. 
+Feel free to fork this repo if you want to run it on your local machine. For this application, I also used Robo 3T to make sure my routes were working, but you are free to use MongoDB Compass as well. 
 
 Open your terminal (if on a Mac) and make sure you run the command: 
 
